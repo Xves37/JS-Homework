@@ -26,13 +26,18 @@ let personOriginal = {
 
 // Create a deepCopy function
 function deepCopy(obj) {
-    if (typeof obj != "object" || obj == null) return obj;
+    if (typeof obj != "object" || obj == null) {
+      return obj
+    }
     let objClone = {};
 
     for (let prop in obj) {
 
-        if (typeof obj[prop] == "object") objClone[prop] = deepCopy(obj[prop]);
-        else objClone[prop] = obj[prop];
+        if (typeof obj[prop] == "object") {
+          objClone[prop] = deepCopy(obj[prop])
+        } else {
+          objClone[prop] = obj[prop]
+        }
         
     }
 
