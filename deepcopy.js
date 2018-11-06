@@ -33,6 +33,7 @@ function deepCopy(obj) {
 
         if (typeof obj[prop] == "object") objClone[prop] = deepCopy(obj[prop]);
         else objClone[prop] = obj[prop];
+        
     }
 
     return objClone;
