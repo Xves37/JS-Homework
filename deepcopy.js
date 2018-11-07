@@ -1,5 +1,3 @@
-"use strict";
-
 let personOriginal = {
     "id": 1,
     "name": "Leanne Graham",
