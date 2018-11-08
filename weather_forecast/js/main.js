@@ -38,7 +38,7 @@ function ajaxGet(city) {
         } else if (request.readyState == 4 && request.status == 404) {
             wrongInput('You entered wrong city!')
             loader.classList.remove('round-animation');
-        } else if (request.readyState == 4) {
+        } else if (request.readyState == 4 && request.status == 400) {
             wrongInput('Enter something!')
             loader.classList.remove('round-animation');
         }
