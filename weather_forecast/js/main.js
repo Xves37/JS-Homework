@@ -2,7 +2,7 @@ let btn       = document.querySelector('button.button');
 let cityInput = document.querySelector('.city-input');
 let error     = document.querySelector('.error');
 let loader    = document.querySelector('.round');
-let conteiner = document.querySelector('.info');
+let container = document.querySelector('.info');
 
 let name     = document.querySelector('.city-name');
 let weather  = document.querySelector('.weather');
@@ -14,23 +14,26 @@ let cloud    = document.querySelector('.cloud');
 let coords   = document.querySelector('.coords');
 let desc     = document.querySelector('.description');
 let image    = document.querySelector('.image');
+const ENTER  = 13;
 
-btn.addEventListener('click', () => {
+function getCity() {
     let input = deleteExtraSpaces(cityInput.value);
     ajaxGet(input)
+}
+
+btn.addEventListener('click', () => {
+    getCity();
 });
 
 cityInput.addEventListener('keypress', (e) => {
-
     
-    if (e.keyCode == 13) {
-        let input = deleteExtraSpaces(cityInput.value);
-        ajaxGet(input);
+    if (e.keyCode == ENTER) {
+        getCity();
     }
 
 });
 
-function deleteExtraSpaces(str) { // delete extra spaces
+function deleteExtraSpaces(str) {
     
     let j = [];
     let newStr = str.split('');
@@ -72,7 +75,7 @@ function ajaxGet(city) {
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
 
-            conteiner.classList.add('info-visible');
+            container.classList.add('info-visible');
             let response = JSON.parse(request.responseText);
             console.log(response);
             changeInfo(response);
@@ -113,6 +116,9 @@ function wrongInput(errorText) {
 }
 
 function wrongInputBack() {
+    if (!error.classList.contains('error-visible')) {
+        return;
+    }
     error.classList.remove('error-visible');
     cityInput.classList.remove('input-error');
 }
