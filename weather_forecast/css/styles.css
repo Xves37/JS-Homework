@@ -141,7 +141,7 @@ h1 {
 }
 
 .info {
-  width: 600px;
+  min-width: 600px;
   margin: 20px auto;
   background-color: white;
   border-radius: 10px;
