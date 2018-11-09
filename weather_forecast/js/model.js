@@ -53,31 +53,19 @@ function weatherForecast(city) {
 
 }
 
-function deleteExtraSpaces(str) {
-    
+function deleteExtraSpaces(str) { // it doesn't matter how it works! 
     let j = [];
     let newStr = str.split('');
 
     newStr.reduce( (last, element, i) => {
-        if (last == element && element == ' ') {
-            j.push(i);
-        }
+        if (last == element && element == ' ') j.push(i);
         return element;
     })
-
     for (let i = newStr.length - 1; i > 0; i--) {
-        if (j.indexOf(i) != -1) {
-            newStr.splice(i,1)
-        }
+        if (j.indexOf(i) != -1) newStr.splice(i,1);
     }
-
-    if (newStr[newStr.length - 1] == " ") {
-        newStr.splice(newStr.length - 1,1)
-    }
-
-    if (newStr[0] == " ") {
-        newStr.splice(0,1)
-    }
+    if (newStr[newStr.length - 1] == " ") newStr.splice(newStr.length - 1,1);
+    if (newStr[0] == " ") newStr.splice(0,1);
 
     return newStr.join('');
 }
