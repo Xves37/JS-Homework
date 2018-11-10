@@ -23,7 +23,7 @@ function changeInfo(response) {
     desc.innerHTML     = '(' + response.weather[0].description + ')';
     coords.innerHTML   = '(' + response.coord.lon + '; ' + response.coord.lat + ')';
     image.src          = 'http://openweathermap.org/img/w/' + response.weather[0].icon + '.png';
-}
+}  
 
 function showError(errorText) {
     error.innerHTML = errorText;
@@ -37,6 +37,7 @@ function hideError() {
     if (error.classList.contains('error-visible')) {        
         error.classList.remove('error-visible');
         cityInput.classList.remove('input-error');
+        stopLoader();
     }
 }
 

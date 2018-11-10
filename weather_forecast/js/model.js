@@ -17,10 +17,10 @@ function getCity() {
     let cityName = cityInput.value;
     let correctCityName = deleteExtraSpaces(cityName);
 
-    weatherForecast(correctCityName)
+    weatherToday(correctCityName)
 }
 
-function weatherForecast(city) {
+function weatherToday(city) {
     let request = new XMLHttpRequest();
     let url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=ef5ffdb295f9241df26ba3b904510af5';
 
@@ -38,18 +38,19 @@ function weatherForecast(city) {
             showWeatherForecast();
             changeInfo(response);
             hideError();
-            stopLoader();
         } else if (isCityIncorrect) {
             showError('You entered wrong city!');
-            stopLoader();
         } else if (isFieldEmpty) {
             showError('Enter something!');
-            stopLoader();
         }
     }
 
     request.open('GET', url);
     request.send();
+
+}
+
+function weatherForecast() {
 
 }
 
