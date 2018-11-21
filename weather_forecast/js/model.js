@@ -3,15 +3,15 @@ function weatherModel() {
     let view = weatherView();
     let city = cityInput;
 
-    function weatherForecast() {
+    function showWeatherForecast() {
         let city = getCity();
 
-        weatherToday(city);
-        weatherWeek(city);
+        showWeatherToday(city);
+        showWeatherWeek(city);
 
     }
 
-    function weatherToday(city) {
+    function showWeatherToday(city) {
         let request = new XMLHttpRequest();
         let url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=ef5ffdb295f9241df26ba3b904510af5';
 
@@ -40,7 +40,7 @@ function weatherModel() {
         request.send();
     }
 
-    function weatherWeek(city) {
+    function showWeatherWeek(city) {
         let request = new XMLHttpRequest();
         let url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=ef5ffdb295f9241df26ba3b904510af5';
         
@@ -84,7 +84,7 @@ function weatherModel() {
     }
 
     return {
-        weatherForecast: weatherForecast
+        showWeatherForecast: showWeatherForecast
     }
 
 }

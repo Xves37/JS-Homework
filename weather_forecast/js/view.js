@@ -1,14 +1,14 @@
 function weatherView() {
-    let city  = document.querySelector('.city');
-    let week  = document.querySelector('.week');
-    let today = document.querySelector('.today');
+    const city  = document.querySelector('.city');
+    const week  = document.querySelector('.week');
+    const today = document.querySelector('.today');
 
     function changeCity (response) {
-        let cityName = response.name;
-        let countryCode = response.sys.country;
-        let coords = response.coord.lon + '; ' + response.coord.lat;
+        const cityName = response.name;
+        const countryCode = response.sys.country;
+        const coords = response.coord.lon + '; ' + response.coord.lat;
 
-        let cityPattern = 
+        const cityPattern = 
             '<h2 class="city-name">' +
                 '<span class="name">' + cityName + '</span>,' +
                 '<span class="country"> ' + countryCode + '</span>' +
@@ -20,18 +20,18 @@ function weatherView() {
     }
 
     function changeWeatherToday(response) {
-        let temp = Math.round(response.main.temp - 273.15);
-        let date = (new Date).toString().slice(0,25);
-        let desc = response.weather[0].description.toString()[0].toUpperCase() + response.weather[0].description.slice(1);
-        let humidity = response.main.humidity;
-        let pressure = response.main.pressure;
-        let windSpeed = response.wind.deg;
-        let clouds = response.clouds.all;
-        let icon = parseImg(response.weather[0].icon);
+        const temp = Math.round(response.main.temp - 273.15);
+        const date = (new Date).toString().slice(0,25);
+        const desc = response.weather[0].description.toString()[0].toUpperCase() + response.weather[0].description.slice(1);
+        const humidity = response.main.humidity;
+        const pressure = response.main.pressure;
+        const windSpeed = response.wind.deg;
+        const clouds = response.clouds.all;
+        const icon = parseImg(response.weather[0].icon);
 
 
 
-        let weatherTodayPattern =
+        const weatherTodayPattern =
             '<header>' +
                 '<div class="today-date">' + date + '</div>' +
             '</header>' +
@@ -96,15 +96,15 @@ function weatherView() {
     // </aside>
 
     // function changeWeek (response) {
-    //     let fullWeekPattern = '';
+    //     const fullWeekPattern = '';
 
-    //     for (let i = 1; i < 6; i++) {
+    //     for (const i = 1; i < 6; i++) {
 
     //     }
     // }
 
     // function createDayPattern() {
-    //     let dayPattern =
+    //     const dayPattern =
     //         '<div class="day-1">' +
     //             '<div class="day-and-data">' +
     //                 '<div class="day-name"></div>' +
