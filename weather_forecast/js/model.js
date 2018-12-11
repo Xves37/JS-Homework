@@ -25,7 +25,7 @@ function weatherModel() {
                 let responseJSON = request.responseText;
                 let response = JSON.parse(responseJSON);
                 
-                console.log(response);            
+                console.log(response);
                 view.changeCity(response);
                 view.changeWeatherToday(response);
                 // hideError();

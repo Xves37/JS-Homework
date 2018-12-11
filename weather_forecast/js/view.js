@@ -1,6 +1,6 @@
 function weatherView() {
     let city  = document.querySelector('.city');
-    let week  = document.querySelector('.week');
+    // let week  = document.querySelector('.week');
     let today = document.querySelector('.today');
 
     function changeCity (response) {
@@ -55,69 +55,6 @@ function weatherView() {
 
         today.innerHTML = weatherTodayPattern;
     }
-
-    // function createSelectedByDayPattern() {
-
-    // }
-
-    // function createSelectedByTimePattern() {
-        
-    // }
-
-    // function changeSelectedWeather() {
-
-    // }
-
-    // <header>
-    //     <ul class="timeline">
-    //         <li class="time-1"></li>
-    //         <li class="time-2"></li>
-    //         <li class="time-3"></li>
-    //         <li class="time-4"></li>
-    //         <li class="time-5"></li>
-    //         <li class="time-6"></li>
-    //         <li class="time-7"></li>
-    //         <li class="time-8"></li>
-    //     </ul>
-    // </header>
-    // <div class="main-weather" data-time='9.00'>
-    //     <div class="main-temp"></div>
-    //     <div class="main-icon"></div>
-    //     <br>
-    //     <div class="main-description"></div>
-    // </div>
-    // <aside>
-    //     <ul>
-    //         <li class="humidity"></li>
-    //         <li class="pressure"></li>
-    //         <li class="wind"></li>
-    //         <li class="clouds"></li>                        
-    //     </ul>
-    // </aside>
-
-    // function changeWeek (response) {
-    //     let fullWeekPattern = '';
-
-    //     for (let i = 1; i < 6; i++) {
-
-    //     }
-    // }
-
-    // function createDayPattern() {
-    //     let dayPattern =
-    //         '<div class="day-1">' +
-    //             '<div class="day-and-data">' +
-    //                 '<div class="day-name"></div>' +
-    //                 '<div class="data"></div>' +
-    //             '</div>' +
-    //             '<div class="weather-little">' +
-    //                 '<div class="week-temp"></div>' +
-    //                 '<div class="week-icon"></div>' +
-    //             '</div>' +
-    //         '</div>';
-
-    //     return dayPattern;
-    // }
 
     function parseImg(iconCode) {
         if (iconCode == '03d' || iconCode == '03n' || iconCode == '04n' || iconCode == '04d') {

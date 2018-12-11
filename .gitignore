@@ -2,4 +2,6 @@
 /*/*.json
 /*/gulpfile.js
 /*/scss/*
-/**/*.psd
+/*/design
+node_modules
+package-lock.json
