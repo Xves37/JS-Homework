@@ -1,6 +1,5 @@
 function weatherView() {
     let city  = document.querySelector('.city');
-    // let week  = document.querySelector('.week');
     let today = document.querySelector('.today');
 
     function changeCity (response) {

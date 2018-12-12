@@ -7,8 +7,6 @@ function weatherModel() {
         let city = getCity();
 
         showWeatherToday(city);
-        showWeatherWeek(city);
-
     }
 
     function showWeatherToday(city) {
@@ -40,27 +38,6 @@ function weatherModel() {
         request.send();
     }
 
-    function showWeatherWeek(city) {
-        let request = new XMLHttpRequest();
-        let url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=ef5ffdb295f9241df26ba3b904510af5';
-        
-        request.onreadystatechange = function () {
-            let isRequestReady = request.readyState == 4;
-
-
-            if (isRequestReady) {
-                let responseJSON = request.responseText;
-                let response = JSON.parse(responseJSON);
-                
-                // showDates(response);
-                console.log(response);
-            }
-        }
-
-        request.open('GET', url);
-        request.send();
-    }
-    
     function getCity() {
         let cityName = city.value;
         cityName = deleteExtraSpaces(cityName);
