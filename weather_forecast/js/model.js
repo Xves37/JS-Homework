@@ -10,34 +10,16 @@ function weatherModel() {
         showWeatherWeek(city);
 
     }
-
-    function showWeatherToday(city) {
-        let request = new XMLHttpRequest();
-        let url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=ef5ffdb295f9241df26ba3b904510af5';
-
-        request.onreadystatechange = function () {
-            let isRequestReady = request.readyState == 4;
-            let isCityCorrect = isRequestReady && request.status == 200;
-            let isCityIncorrect = isRequestReady && request.status == 404;
-            let isFieldEmpty = isRequestReady == 4 && request.status == 400;
     
-            if (isCityCorrect) {
-                let responseJSON = request.responseText;
-                let response = JSON.parse(responseJSON);
-                
-                console.log(response);            
-                view.changeCity(response);
-                view.changeWeatherToday(response);
-                // hideError();
-            } else if (isCityIncorrect) {
-                // showError('You entered wrong city!');
-            } else if (isFieldEmpty) {
-                // showError('Enter something!');
-            }
-        }
-
-        request.open('GET', url);
-        request.send();
+    function showWeatherToday(city) {
+        fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=ef5ffdb295f9241df26ba3b904510af5')
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {                
+                view.changeCity(data);
+                view.changeWeatherToday(data);
+            });
     }
 
     function showWeatherWeek(city) {
