@@ -1,7 +1,7 @@
-function weatherModel() {
+function weatherModel(input) {
     
     let view = weatherView();
-    let city = cityInput;
+    let city = input;
 
     function showWeatherForecast() {
         let city = getCity();
@@ -10,7 +10,9 @@ function weatherModel() {
     }
 
     function showWeatherToday(city) {
-        fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=ef5ffdb295f9241df26ba3b904510af5')
+        let url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=ef5ffdb295f9241df26ba3b904510af5';
+
+        fetch(url)
             .then(response => {
                 return response.json();
             })
@@ -20,6 +22,10 @@ function weatherModel() {
             });
     }
     
+    autoComplete = debounce(() => {
+        console.log(input.value);
+    }, 200);
+
     function getCity() {
         let cityName = city.value;
         cityName = deleteExtraSpaces(cityName);
@@ -42,8 +48,26 @@ function weatherModel() {
         return newStr.join('').trim();
     }
 
+    function debounce(f, ms) {
+        let timer = null;
+      
+        return function (...args) {
+          const onComplete = () => {
+            f.apply(this, args);
+            timer = null;
+          }
+      
+          if (timer) {
+            clearTimeout(timer);
+          }
+      
+          timer = setTimeout(onComplete, ms);
+        };
+    }
+
     return {
-        showWeatherForecast: showWeatherForecast
+        showWeatherForecast: showWeatherForecast,
+        autoComplete: autoComplete
     }
 
 }
