@@ -1,0 +1,16 @@
+{
+  "name": "weather_forecast",
+  "version": "1.0.0",
+  "description": "[Link to this website!](https://xves37.github.io/projects/weather_forecast/index.html)",
+  "main": "index.js",
+  "scripts": {
+    "server": "http-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}
